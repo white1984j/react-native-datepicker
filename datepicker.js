@@ -313,6 +313,9 @@ class DatePicker extends Component {
       if (iconComponent) {
         return iconComponent;
       }
+      if (!iconSource) {
+        return null; // fix crash android
+      }
       return (
         <Image
           style={[Style.dateIcon, customStyles.dateIcon]}
