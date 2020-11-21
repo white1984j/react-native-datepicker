@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import {
   View,
   Text,
@@ -7,7 +8,6 @@ import {
   Modal,
   TouchableHighlight,
   DatePickerAndroid,
-  TimePickerAndroid,
   DatePickerIOS,
   Platform,
   Animated,
@@ -225,7 +225,7 @@ class DatePicker extends Component {
     if (action !== DatePickerAndroid.dismissedAction) {
       let timeMoment = Moment(this.state.date);
 
-      TimePickerAndroid.open({
+      DateTimePicker.open({
         hour: timeMoment.hour(),
         minute: timeMoment.minutes(),
         is24Hour: is24Hour,
@@ -278,7 +278,7 @@ class DatePicker extends Component {
 
         let timeMoment = Moment(this.state.date);
 
-        TimePickerAndroid.open({
+        DateTimePicker.open({
           hour: timeMoment.hour(),
           minute: timeMoment.minutes(),
           is24Hour: is24Hour,
