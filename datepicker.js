@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import TimePickerAndroid from '@react-native-community/datetimepicker/src/timepicker.android';
 import {
   View,
   Text,
@@ -225,11 +226,10 @@ class DatePicker extends Component {
     if (action !== DatePickerAndroid.dismissedAction) {
       let timeMoment = Moment(this.state.date);
 
-      DateTimePicker.open({
+      TimePickerAndroid.open({
         hour: timeMoment.hour(),
         minute: timeMoment.minutes(),
         is24Hour: is24Hour,
-        mode: androidMode
       }).then(this.onDatetimeTimePicked.bind(this, year, month, day));
     } else {
       this.onPressCancel();
